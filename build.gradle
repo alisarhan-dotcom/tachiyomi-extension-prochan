@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 33
+    namespace "eu.kanade.tachiyomi.extension.en.prochan"
+
+    defaultConfig {
+        applicationId "eu.kanade.tachiyomi.extension.en.prochan"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.2.1"
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
+    compileOnly "eu.kanade.tachiyomi:lib-multisrc:1.1"
+    compileOnly "eu.kanade.tachiyomi:extension-lib:1.4"
+}
